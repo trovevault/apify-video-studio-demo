@@ -1,0 +1,45 @@
+{
+  "note": "Seven fixed subjects for the live demo. Every one was run through the real subjectFrom pipeline and the figures below are what SURVIVES the relevance filter and the dedupe, not the raw scrape. Raw ratios are misleading: a Petcube shelf reads 13x raw because it compares a charger to a camera.",
+  "verifiedOn": "2026-09-17",
+  "rejected": {
+    "amazon.es / amazon.it / amazon.in / alza.cz": "prices are euros, rupees and koruna but carry no currency, so they render as dollars. This is the exact fault the ecommerce-agent-starter benchmark reports for the DIY arm.",
+    "nanit pro / garmin dash cam x210": "2 products after filtering, no story",
+    "starbucks capsules / garmin forerunner 265s": "1.0 to 1.1x spread, nothing to say"
+  },
+  "ideas": [
+    { "id": "demo-1", "cacheKey": "de1bba44", "keyword": "nerf dragonpower firestrike blaster",
+      "title": "NERF DragonPower Firestrike price gap", "format": "pricegap", "category": "toys",
+      "brief": "the same blaster across two retailers", "audience": "consumer",
+      "verified": { "products": 12, "low": 9.99, "high": 123.5, "ratio": 12.4, "stores": ["Walmart", "Amazon"] } },
+
+    { "id": "demo-2", "cacheKey": "aea84a90", "keyword": "elgato stream deck",
+      "title": "Elgato Stream Deck: what the listings actually cost", "format": "pricegap", "category": "tech",
+      "brief": "one keypad, four prices", "audience": "consumer",
+      "verified": { "products": 4, "low": 59.2, "high": 868.99, "ratio": 14.7, "stores": ["Walmart"] } },
+
+    { "id": "demo-3", "cacheKey": "6f805791", "keyword": "canon pixma g3272",
+      "title": "Canon PIXMA G3272 hidden costs", "format": "hiddenfees", "category": "tech",
+      "brief": "what a printer listing leaves out", "audience": "consumer",
+      "verified": { "products": 12, "low": 29.89, "high": 389.99, "ratio": 13.0, "stores": ["Walmart"] } },
+
+    { "id": "demo-4", "cacheKey": "a883ce17", "keyword": "petsafe easy walk harness",
+      "title": "PetSafe Easy Walk Harness across two stores", "format": "pricegap", "category": "pets",
+      "brief": "same harness, two retailers", "audience": "consumer",
+      "verified": { "products": 12, "low": 10, "high": 59.99, "ratio": 6.0, "stores": ["Walmart", "Amazon"] } },
+
+    { "id": "demo-5", "cacheKey": "681e554f", "keyword": "nacon revolution 5 pro",
+      "title": "NACON Revolution 5 Pro: the search trap", "format": "searchtrap", "category": "gaming",
+      "brief": "what comes back when you search for one controller", "audience": "consumer",
+      "verified": { "products": 12, "low": 49.99, "high": 279, "ratio": 5.6, "stores": ["Amazon"] } },
+
+    { "id": "demo-6", "cacheKey": "bf9ba017", "keyword": "lee men's dayton",
+      "title": "Lee Men's Dayton: read the listing", "format": "fieldtrap", "category": "apparel",
+      "brief": "the variant is not the product", "audience": "consumer",
+      "verified": { "products": 12, "low": 29.99, "high": 139.99, "ratio": 4.7, "stores": ["Walmart", "Amazon"] } },
+
+    { "id": "demo-7", "cacheKey": "8c04b6ed", "keyword": "camelbak cloud walker 18",
+      "title": "CamelBak Cloud Walker 18: how to check a price", "format": "methodtip", "category": "outdoor",
+      "brief": "the thirty-second check before you buy", "audience": "consumer",
+      "verified": { "products": 9, "low": 99.99, "high": 299, "ratio": 3.0, "stores": ["Best Buy"] } }
+  ]
+}
