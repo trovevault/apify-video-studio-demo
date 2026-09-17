@@ -1,3 +1,4 @@
-demo/renders/
 node_modules/
 .DS_Store
+
+# demo/renders IS committed: the packaged videos are the handover.

@@ -1,0 +1,192 @@
+{
+ "packagedAt": "2026-09-17T12:26:05.833Z",
+ "stages": [
+  {
+   "key": "ingest",
+   "label": "Running E-commerce Scraping Tool",
+   "pct": 12,
+   "hold": 6000,
+   "realSeconds": 25
+  },
+  {
+   "key": "script",
+   "label": "Writing the script",
+   "pct": 28,
+   "hold": 5000,
+   "realSeconds": 25
+  },
+  {
+   "key": "voice",
+   "label": "Generating the voice",
+   "pct": 55,
+   "hold": 9000,
+   "realSeconds": 124
+  },
+  {
+   "key": "visuals",
+   "label": "Creating the visuals",
+   "pct": 78,
+   "hold": 6000,
+   "realSeconds": 20
+  },
+  {
+   "key": "render",
+   "label": "Animating and rendering",
+   "pct": 96,
+   "hold": 7000,
+   "realSeconds": 37
+  }
+ ],
+ "videos": [
+  {
+   "id": "demo-1",
+   "title": "NERF DragonPower Firestrike price gap",
+   "keyword": "nerf dragonpower firestrike blaster",
+   "video": "renders/demo-1/video.mp4",
+   "thumb": "renders/demo-1/thumb.png",
+   "bytes": 2514524,
+   "seconds": 16.03,
+   "hook": "priceslap",
+   "style": "volume",
+   "script": "I almost paid over a hundred and twenty dollars for a Nerf blaster. Then I pulled every listing with Apify and sorted by price. The cheapest? Under ten bucks. The priciest? Twelve times that. Same search, wildly different blasters. Now I always check the whole page before I buy. Follow for more finds.",
+   "verified": {
+    "products": 12,
+    "low": 9.99,
+    "high": 123.5,
+    "ratio": 12.4,
+    "stores": [
+     "Walmart",
+     "Amazon"
+    ]
+   }
+  },
+  {
+   "id": "demo-2",
+   "title": "Elgato Stream Deck: what the listings actually cost",
+   "keyword": "elgato stream deck",
+   "video": "renders/demo-2/video.mp4",
+   "thumb": "renders/demo-2/thumb.png",
+   "bytes": 1201372,
+   "seconds": 13.63,
+   "hook": "notifpop",
+   "style": "compare",
+   "script": "I almost paid nearly nine hundred dollars for an Elgato Stream Deck. I pulled every listing with Apify and ranked them by price. The cheapest one? Sixty bucks. The studio version I was eyeing? Fifteen times that. Same search, totally different gear. Follow if you want more of these.",
+   "verified": {
+    "products": 4,
+    "low": 59.2,
+    "high": 868.99,
+    "ratio": 14.7,
+    "stores": [
+     "Walmart"
+    ]
+   }
+  },
+  {
+   "id": "demo-3",
+   "title": "Canon PIXMA G3272 hidden costs",
+   "keyword": "canon pixma g3272",
+   "video": "renders/demo-3/video.mp4",
+   "thumb": "renders/demo-3/thumb.png",
+   "bytes": 2348383,
+   "seconds": 19.07,
+   "hook": "receiptrip",
+   "style": "stream",
+   "script": "I was shopping for a Canon Pixma G3272 and almost paid the three-ninety tax. Pulled every listing with Apify, ranked by price. Cheapest? Ink cartridge bundles at thirty dollars. The printer I nearly bought? Four hundred. Turns out listings bury what you're actually paying for. Follow if you want more of these.",
+   "verified": {
+    "products": 12,
+    "low": 29.89,
+    "high": 389.99,
+    "ratio": 13,
+    "stores": [
+     "Walmart"
+    ]
+   }
+  },
+  {
+   "id": "demo-4",
+   "title": "PetSafe Easy Walk Harness across two stores",
+   "keyword": "petsafe easy walk harness",
+   "video": "renders/demo-4/video.mp4",
+   "thumb": "renders/demo-4/thumb.png",
+   "bytes": 2580818,
+   "seconds": 15.8,
+   "hook": "priceslap",
+   "style": "compare",
+   "script": "I almost paid sixty dollars for a petsafe easy walk harness. So I pulled every listing with Apify and sorted them. Ten dollars for a no-pull mesh harness. Sixty for a Ruffwear. Six times the price. Now I always check the whole shelf first. Follow if you want more of these.",
+   "verified": {
+    "products": 12,
+    "low": 10,
+    "high": 59.99,
+    "ratio": 6,
+    "stores": [
+     "Walmart",
+     "Amazon"
+    ]
+   }
+  },
+  {
+   "id": "demo-5",
+   "title": "NACON Revolution 5 Pro: the search trap",
+   "keyword": "nacon revolution 5 pro",
+   "video": "renders/demo-5/video.mp4",
+   "thumb": "renders/demo-5/thumb.png",
+   "bytes": 1704675,
+   "seconds": 19,
+   "hook": "priceslap",
+   "style": "compare",
+   "script": "I searched for the nacon revolution five pro and the spread was wild. Cheapest controller? Fifty bucks. Most expensive? Two hundred seventy nine dollars. I pulled every listing with Apify and the priciest one was almost six times the cheapest. Different specs, sure, but that gap is huge. Now I sort by price every single time. Follow for more.",
+   "verified": {
+    "products": 12,
+    "low": 49.99,
+    "high": 279,
+    "ratio": 5.6,
+    "stores": [
+     "Amazon"
+    ]
+   }
+  },
+  {
+   "id": "demo-6",
+   "title": "Lee Men's Dayton: read the listing",
+   "keyword": "lee men's dayton",
+   "video": "renders/demo-6/video.mp4",
+   "thumb": "renders/demo-6/thumb.png",
+   "bytes": 2287330,
+   "seconds": 15.4,
+   "hook": "priceslap",
+   "style": "compare",
+   "script": "I almost paid one forty for lee men's daytons. Pulled every listing with Apify and sorted by price. Cheapest pair? Under thirty bucks. The most expensive? Nearly five times that, and it's a tactical boot, not even the same product. Now I always check the whole shelf first. Follow for more of these.",
+   "verified": {
+    "products": 12,
+    "low": 29.99,
+    "high": 139.99,
+    "ratio": 4.7,
+    "stores": [
+     "Walmart",
+     "Amazon"
+    ]
+   }
+  },
+  {
+   "id": "demo-7",
+   "title": "CamelBak Cloud Walker 18: how to check a price",
+   "keyword": "camelbak cloud walker 18",
+   "video": "renders/demo-7/video.mp4",
+   "thumb": "renders/demo-7/thumb.png",
+   "bytes": 2496644,
+   "seconds": 17.03,
+   "hook": "priceslap",
+   "style": "compare",
+   "script": "I almost paid three hundred dollars for a backpack. Did a thirty-second check with Apify before buying, pulled every camelbak cloud walker listing and sorted by price. Found one for a hundred bucks. The leather one I was staring at? Three times the price. Now I always pull the shelf first. Follow for more of these.",
+   "verified": {
+    "products": 12,
+    "low": 99.99,
+    "high": 299,
+    "ratio": 3,
+    "stores": [
+     "Best Buy"
+    ]
+   }
+  }
+ ]
+}

@@ -40,6 +40,6 @@
     { "id": "demo-7", "cacheKey": "8c04b6ed", "keyword": "camelbak cloud walker 18",
       "title": "CamelBak Cloud Walker 18: how to check a price", "format": "methodtip", "category": "outdoor",
       "brief": "the thirty-second check before you buy", "audience": "consumer",
-      "verified": { "products": 9, "low": 99.99, "high": 299, "ratio": 3.0, "stores": ["Best Buy"] } }
+      "verified": { "products": 12, "low": 99.99, "high": 299, "ratio": 3.0, "stores": ["Best Buy"] } }
   ]
 }

@@ -66,3 +66,65 @@ subjects can never overwrite or reorder the real backlog. `seedIdeas` refuses a
 store that already has ideas, so it is idempotent.
 
 See `WIRING.md` for the four edits this needs in the app.
+
+## Handing it to a web app
+
+`node demo/package.mjs` copies the rendered videos in here under their ids and
+writes `demo/renders/manifest.json` with **relative** paths. That is the whole
+handover: the videos travel with the repo, and nothing points at anyone's home
+directory.
+
+```
+demo/renders/
+  manifest.json
+  demo-1/video.mp4   demo-1/thumb.png
+  demo-2/video.mp4   demo-2/thumb.png
+  ...
+```
+
+Each entry carries what a caller needs without re-deriving anything:
+
+```json
+{
+  "id": "demo-1",
+  "title": "NERF DragonPower Firestrike price gap",
+  "video": "renders/demo-1/video.mp4",
+  "thumb": "renders/demo-1/thumb.png",
+  "seconds": 16.03,
+  "hook": "priceslap",
+  "script": "the spoken words, verbatim",
+  "verified": { "products": 12, "low": 9.99, "high": 123.5, "ratio": 12.4, "stores": ["Walmart", "Amazon"] }
+}
+```
+
+`manifest.json` also embeds the stage list, so the progress indicator and the
+videos arrive together and cannot drift apart.
+
+### Instant playback
+
+Copy `demo/renders` into `public/` and the files are served at `/renders/...`.
+On a stage, the gap between the last stage finishing and the first frame is the
+only thing that can still feel slow, so fetch them once at startup and play from
+memory:
+
+```js
+const manifest = await fetch('/renders/manifest.json').then((r) => r.json())
+const blobs = Object.fromEntries(await Promise.all(
+  manifest.videos.map(async (v) => [
+    v.id,
+    URL.createObjectURL(await fetch('/' + v.video).then((r) => r.blob())),
+  ]),
+))
+// then: <video src={blobs[id]} autoPlay loop />
+```
+
+Nineteen megabytes total, so this finishes long before anyone reaches the demo.
+Revoke the object URLs on unmount if the page is long-lived.
+
+### The stages
+
+`demo/stages.json` holds the wording, the percentages and the holds. The holds
+are weighted to match where the real pipeline actually spends its time, so the
+voice is the longest wait here because it is the longest wait in truth: 124 of
+the 231 real seconds. Change them in that one file and both this and the Electron
+app follow.

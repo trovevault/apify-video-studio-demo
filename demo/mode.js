@@ -48,16 +48,13 @@ export function demoRender(ideaId) {
 
 // THE STAGE WALK.
 //
-// Named after the stages the real job emits, in the real order, so the operator
-// narrates the same thing either way. `hold` is how long each is shown.
-export const DEMO_STAGES = [
-  { stage: 'ingest', activity: 'Running the Apify Actor', pct: 6, hold: 6000 },
-  { stage: 'ingest', activity: 'Dropping accessories and duplicates', pct: 18, hold: 5000 },
-  { stage: 'script', activity: 'Writing the script from those numbers', pct: 32, hold: 7000 },
-  { stage: 'voice', activity: 'Narrating in your voice', pct: 52, hold: 7000 },
-  { stage: 'visuals', activity: 'Rendering 1080x1920', pct: 78, hold: 6000 },
-  { stage: 'editor', activity: 'Mixing and colour correcting', pct: 94, hold: 5000 },
-]
+// Read from stages.json rather than written here, because the same list drives
+// the web app this is handed to. One file, one wording, one set of timings: if
+// they drift, the two demos stop looking like the same product.
+export const DEMO_STAGES = (() => {
+  const s = load('stages.json')
+  return (s && s.stages) || []
+})()
 
 // Walk the stages, then hand back the pre-rendered artefact. `emit` is the same
 // progress channel the real job uses, so the UI needs no special case.
@@ -66,7 +63,7 @@ export async function demoReplay(ideaId, emit, { cancelled = () => false } = {})
   if (!hit) throw new Error(`no pre-rendered video for ${ideaId}. Run: node demo/prerender.mjs ${ideaId}`)
   for (const s of DEMO_STAGES) {
     if (cancelled()) return null
-    emit({ status: 'running', stage: s.stage, activity: s.activity, pct: s.pct })
+    emit({ status: 'running', stage: s.key, activity: s.label, pct: s.pct })
     await new Promise((r) => setTimeout(r, s.hold))
   }
   if (cancelled()) return null

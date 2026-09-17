@@ -1,0 +1,11 @@
+{
+  "note": "The loading stages, in the order the real job emits them. Wording is Luís's, put into present participles so a progress indicator reads at one speed. `hold` is milliseconds.",
+  "holdsAreProportional": "The real job spends its time roughly 13% planning, 65% voice, 19% render, 2% mux. The holds below keep that shape, so the fake clock at least moves like the real one: the voice is the longest wait here because it is the longest wait in truth.",
+  "stages": [
+    { "key": "ingest",  "label": "Running E-commerce Scraping Tool", "pct": 12, "hold": 6000, "realSeconds": 25 },
+    { "key": "script",  "label": "Writing the script",               "pct": 28, "hold": 5000, "realSeconds": 25 },
+    { "key": "voice",   "label": "Generating the voice",             "pct": 55, "hold": 9000, "realSeconds": 124 },
+    { "key": "visuals", "label": "Creating the visuals",             "pct": 78, "hold": 6000, "realSeconds": 20 },
+    { "key": "render",  "label": "Animating and rendering",          "pct": 96, "hold": 7000, "realSeconds": 37 }
+  ]
+}
