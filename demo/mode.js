@@ -19,12 +19,26 @@
 // returns null when the mode is off.
 import fs from 'node:fs'
 import path from 'node:path'
+import { CFG } from '../electron/config.js'
+import { fileURLToPath } from 'node:url'
 
-const HERE = path.dirname(new URL(import.meta.url).pathname)
+// `ideas.json` and `stages.json` sit beside this file and are small, so they ship
+// inside the app. The renders do not: they are resolved through CFG, which points
+// outside the bundle.
+// `fileURLToPath`, not `new URL(...).pathname`. The pathname keeps percent
+// escapes, so a space in a directory arrives as %20 and every read fails. It
+// looked fine everywhere until this shipped inside
+// /Applications/Apify Video Studio Demo.app/ and the ideas file stopped loading.
+const HERE = path.dirname(fileURLToPath(import.meta.url))
 const load = (f) => { try { return JSON.parse(fs.readFileSync(path.join(HERE, f), 'utf8')) } catch { return null } }
+const RENDERS = () => {
+  try { return CFG.DEMO_RENDERS } catch { return path.join(HERE, 'renders') }
+}
 
 export function demoConfig() { return load('ideas.json') }
-export function demoManifest() { return load(path.join('renders', 'manifest.json')) }
+export function demoManifest() {
+  try { return JSON.parse(fs.readFileSync(path.join(RENDERS(), 'manifest.json'), 'utf8')) } catch { return null }
+}
 
 // The seven, in the shape the ideas store uses, so they render in the UI exactly
 // like generated ones.
@@ -41,9 +55,23 @@ export function demoIdeas() {
 // Which pre-rendered file belongs to an idea, or null if it was never built.
 export function demoRender(ideaId) {
   const m = demoManifest()
-  const hit = m && m.results.find((r) => r.id === ideaId && r.ok)
-  if (!hit || !hit.video || !fs.existsSync(hit.video)) return null
-  return hit
+  if (!m) return null
+  // Two manifest shapes exist and both are legitimate: the studio's raw output
+  // records absolute paths, the packaged handover records paths relative to the
+  // renders folder. Resolve against that folder and either one works.
+  const rows = m.videos || m.results || []
+  const hit = rows.find((r) => r.id === ideaId && r.video)
+  if (!hit) return null
+  // `file` is the disk path relative to the manifest; `video` is the web path and
+  // is NOT usable here, because it carries the serving prefix. Absolute paths are
+  // the studio's own output tree.
+  const rel = hit.file || (path.isAbsolute(hit.video) ? hit.video : null)
+  if (!rel) return null
+  const video = path.isAbsolute(rel) ? rel : path.join(RENDERS(), rel)
+  if (!fs.existsSync(video)) return null
+  const t = hit.thumbFile || (hit.thumb && path.isAbsolute(hit.thumb) ? hit.thumb : null)
+  const thumb = t ? (path.isAbsolute(t) ? t : path.join(RENDERS(), t)) : ''
+  return { ...hit, video, thumb: thumb && fs.existsSync(thumb) ? thumb : '' }
 }
 
 // THE STAGE WALK.
@@ -74,6 +102,13 @@ export async function demoReplay(ideaId, emit, { cancelled = () => false } = {})
     meta: { mode: 'short', engine: 'remotion', seconds: hit.seconds, hook: hit.hook, style: hit.style, demo: true },
   })
   return hit
+}
+
+// How long the idea generator should appear to think before handing the seven
+// back. Instant ideas read as ideas that were already sitting there.
+export function demoIdeasDelay() {
+  const s = load('stages.json')
+  return (s && Number(s.ideasDelayMs)) || 5500
 }
 
 export function demoTotalSeconds() {

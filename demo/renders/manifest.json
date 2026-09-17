@@ -1,5 +1,5 @@
 {
- "packagedAt": "2026-09-17T12:26:05.833Z",
+ "packagedAt": "2026-09-17T12:30:59.164Z",
  "stages": [
   {
    "key": "ingest",
@@ -48,6 +48,8 @@
    "seconds": 16.03,
    "hook": "priceslap",
    "style": "volume",
+   "file": "demo-1/video.mp4",
+   "thumbFile": "demo-1/thumb.png",
    "script": "I almost paid over a hundred and twenty dollars for a Nerf blaster. Then I pulled every listing with Apify and sorted by price. The cheapest? Under ten bucks. The priciest? Twelve times that. Same search, wildly different blasters. Now I always check the whole page before I buy. Follow for more finds.",
    "verified": {
     "products": 12,
@@ -70,6 +72,8 @@
    "seconds": 13.63,
    "hook": "notifpop",
    "style": "compare",
+   "file": "demo-2/video.mp4",
+   "thumbFile": "demo-2/thumb.png",
    "script": "I almost paid nearly nine hundred dollars for an Elgato Stream Deck. I pulled every listing with Apify and ranked them by price. The cheapest one? Sixty bucks. The studio version I was eyeing? Fifteen times that. Same search, totally different gear. Follow if you want more of these.",
    "verified": {
     "products": 4,
@@ -91,6 +95,8 @@
    "seconds": 19.07,
    "hook": "receiptrip",
    "style": "stream",
+   "file": "demo-3/video.mp4",
+   "thumbFile": "demo-3/thumb.png",
    "script": "I was shopping for a Canon Pixma G3272 and almost paid the three-ninety tax. Pulled every listing with Apify, ranked by price. Cheapest? Ink cartridge bundles at thirty dollars. The printer I nearly bought? Four hundred. Turns out listings bury what you're actually paying for. Follow if you want more of these.",
    "verified": {
     "products": 12,
@@ -112,6 +118,8 @@
    "seconds": 15.8,
    "hook": "priceslap",
    "style": "compare",
+   "file": "demo-4/video.mp4",
+   "thumbFile": "demo-4/thumb.png",
    "script": "I almost paid sixty dollars for a petsafe easy walk harness. So I pulled every listing with Apify and sorted them. Ten dollars for a no-pull mesh harness. Sixty for a Ruffwear. Six times the price. Now I always check the whole shelf first. Follow if you want more of these.",
    "verified": {
     "products": 12,
@@ -134,6 +142,8 @@
    "seconds": 19,
    "hook": "priceslap",
    "style": "compare",
+   "file": "demo-5/video.mp4",
+   "thumbFile": "demo-5/thumb.png",
    "script": "I searched for the nacon revolution five pro and the spread was wild. Cheapest controller? Fifty bucks. Most expensive? Two hundred seventy nine dollars. I pulled every listing with Apify and the priciest one was almost six times the cheapest. Different specs, sure, but that gap is huge. Now I sort by price every single time. Follow for more.",
    "verified": {
     "products": 12,
@@ -155,6 +165,8 @@
    "seconds": 15.4,
    "hook": "priceslap",
    "style": "compare",
+   "file": "demo-6/video.mp4",
+   "thumbFile": "demo-6/thumb.png",
    "script": "I almost paid one forty for lee men's daytons. Pulled every listing with Apify and sorted by price. Cheapest pair? Under thirty bucks. The most expensive? Nearly five times that, and it's a tactical boot, not even the same product. Now I always check the whole shelf first. Follow for more of these.",
    "verified": {
     "products": 12,
@@ -177,6 +189,8 @@
    "seconds": 17.03,
    "hook": "priceslap",
    "style": "compare",
+   "file": "demo-7/video.mp4",
+   "thumbFile": "demo-7/thumb.png",
    "script": "I almost paid three hundred dollars for a backpack. Did a thirty-second check with Apify before buying, pulled every camelbak cloud walker listing and sorted by price. Found one for a hundred bucks. The leather one I was staring at? Three times the price. Now I always pull the shelf first. Follow for more of these.",
    "verified": {
     "products": 12,

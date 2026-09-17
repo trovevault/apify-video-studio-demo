@@ -73,10 +73,19 @@ for (const r of built.results) {
   }
   const video = copy(r.video, 'video.mp4')
   const thumb = copy(r.thumb, 'thumb.png')
+  // TWO PATHS, BOTH EXPLICIT.
+  //
+  // `video` is the web path, relative to the root that serves this folder as
+  // /renders. `file` is relative to THIS manifest, for anything reading from
+  // disk. Publishing only the web one meant a disk reader joined it to the
+  // renders directory and asked for renders/renders/..., so both are written
+  // rather than one being inferred from the other.
   const bytes = video ? fs.statSync(path.join(dst, r.id, 'video.mp4')).size : 0
   out.push({
     id: r.id, title: idea ? idea.title : r.id, keyword: idea ? idea.keyword : '',
     video, thumb, bytes, seconds: r.seconds, hook: r.hook, style: r.style,
+    file: video ? `${r.id}/video.mp4` : null,
+    thumbFile: thumb ? `${r.id}/thumb.png` : null,
     // The spoken words, so a caller can show captions or a transcript without
     // re-deriving anything, and so the figures on screen can be checked against
     // the subject that produced them.
