@@ -1,40 +1,11 @@
 {
- "packagedAt": "2026-09-17T12:30:59.164Z",
+ "packagedAt": "2026-10-02T09:07:16.548Z",
  "stages": [
   {
-   "key": "ingest",
-   "label": "Running E-commerce Scraping Tool",
-   "pct": 12,
-   "hold": 6000,
-   "realSeconds": 25
-  },
-  {
-   "key": "script",
-   "label": "Writing the script",
-   "pct": 28,
-   "hold": 5000,
-   "realSeconds": 25
-  },
-  {
-   "key": "voice",
-   "label": "Generating the voice",
-   "pct": 55,
-   "hold": 9000,
-   "realSeconds": 124
-  },
-  {
-   "key": "visuals",
-   "label": "Creating the visuals",
-   "pct": 78,
-   "hold": 6000,
-   "realSeconds": 20
-  },
-  {
-   "key": "render",
-   "label": "Animating and rendering",
-   "pct": 96,
-   "hold": 7000,
-   "realSeconds": 37
+   "key": "loading",
+   "label": "Loading the video",
+   "pct": 50,
+   "hold": 600
   }
  ],
  "videos": [
