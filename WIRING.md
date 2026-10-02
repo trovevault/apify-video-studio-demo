@@ -34,16 +34,15 @@ if (input.mode === 'demo') {
 }
 ```
 
-## Stage timings
+## The loading state
 
-Six stages, 36 seconds end to end. Edit `DEMO_STAGES` in `demo/mode.js` to change
-them; each carries its own `hold` in milliseconds.
+`demo/stages.json` holds one entry, "Loading the video", with a 600ms hold so the
+hand-off is not abrupt. Both `demo/mode.js` and the packaged manifest read that
+file, so changing it there changes both.
 
-| stage | shown as | hold |
-|---|---|---|
-| ingest | Running the Apify Actor | 6s |
-| ingest | Dropping accessories and duplicates | 5s |
-| script | Writing the script from those numbers | 7s |
-| voice | Narrating in your voice | 7s |
-| visuals | Rendering 1080x1920 | 6s |
-| editor | Mixing and colour correcting | 5s |
+It used to hold a run of stages named after the real job, timed so a
+pre-rendered video looked like it was being made. That named work which was not
+happening and it is gone; see the README.
+
+Re-run `node demo/package.mjs` after changing it. The manifest embeds a copy, and
+correcting the source while shipping a stale copy is the same defect twice.
