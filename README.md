@@ -7,20 +7,25 @@ Actor, writes a script from what came back, narrates it, renders a vertical vide
 and publishes it. On stage that takes about three minutes a video, and two thirds
 of it is the voice model. This holds the demo to a length a stage can carry.
 
-## What is real here, and what is not
+## What is real here
 
-**Real.** The seven subjects, the Actor runs behind them, the scripts, and every
-figure in every video. These videos came out of the same pipeline the app uses,
-from the same cached runs, and nothing was overlaid or substituted afterwards. A
+All of it. The seven subjects, the Actor runs behind them, the scripts, and every
+figure in every video. These came out of the same pipeline the app uses, from the
+same cached runs, and nothing was overlaid or substituted afterwards. A
 pre-rendered video is faster, not different.
 
-**Not real.** The clock. `demo/mode.js` walks the real stage names on a timer
-rather than because work is finishing, because a 190-second render does not fit
-in a talk. Nothing in the output depends on that.
+### What used to be staged, and is not any more
 
-The distinction matters because the talk this was built for argues that no number
-reaches the screen unless it came from the scrape. That claim is intact: what is
-staged is when the render happened, never what it says.
+An earlier version held five stages on a timer, named after the real job
+("Running E-commerce Scraping Tool", "Generating the voice", "Animating and
+rendering"), so that a video rendered hours earlier looked like it was being made
+in front of the room. The idea list waited five and a half seconds for the same
+reason.
+
+Nothing in the output ever depended on that, but it named work that was not
+happening, inside a tool whose whole argument is that nothing reaches the screen
+unless it came from the scrape. Both are gone. The replay shows one loading state
+and hands over the file.
 
 ## The seven subjects
 
@@ -123,8 +128,5 @@ Revoke the object URLs on unmount if the page is long-lived.
 
 ### The stages
 
-`demo/stages.json` holds the wording, the percentages and the holds. The holds
-are weighted to match where the real pipeline actually spends its time, so the
-voice is the longest wait here because it is the longest wait in truth: 124 of
-the 231 real seconds. Change them in that one file and both this and the Electron
-app follow.
+`demo/stages.json` holds one state, "Loading the video", with a 600ms hold so the
+hand-off is not abrupt. It is a file-open, and it says so.

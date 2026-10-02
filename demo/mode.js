@@ -4,16 +4,21 @@
 // instead of generated ideas, and it plays back a video that was rendered
 // earlier from that subject's real scrape.
 //
-// WHAT IS REAL HERE AND WHAT IS NOT
+// WHAT IS REAL HERE
 //
-// Real: the subjects, the scrapes behind them, the scripts, and every figure on
-// screen in every video. These videos came out of the same pipeline the app
+// All of it. The subjects, the scrapes behind them, the scripts, and every
+// figure on screen in every video. These came out of the same pipeline the app
 // uses, from the same cached runs, and nothing was overlaid or substituted
 // afterwards. A pre-rendered video is faster, not different.
 //
-// Not real: the clock. The stages below advance on a timer rather than because
-// work is finishing, because a 190-second render does not fit on a stage. The
-// operator knows this; nothing in the output depends on it.
+// WHAT USED TO BE STAGED, AND IS NOT ANY MORE
+//
+// Five stages named after the real job -- running the Actor, writing the script,
+// generating the voice -- held on a timer so that a video rendered hours earlier
+// looked like it was being made. Nothing in the output depended on it, but it
+// named work that was not happening, in a tool whose whole argument is that
+// nothing reaches the screen unless it is real. It is gone: the replay shows one
+// honest loading state and hands over the file.
 //
 // Guarded by CFG.DEMO so it cannot be reached by accident. Every entry point
 // returns null when the mode is off.
@@ -102,13 +107,6 @@ export async function demoReplay(ideaId, emit, { cancelled = () => false } = {})
     meta: { mode: 'short', engine: 'remotion', seconds: hit.seconds, hook: hit.hook, style: hit.style, demo: true },
   })
   return hit
-}
-
-// How long the idea generator should appear to think before handing the seven
-// back. Instant ideas read as ideas that were already sitting there.
-export function demoIdeasDelay() {
-  const s = load('stages.json')
-  return (s && Number(s.ideasDelayMs)) || 5500
 }
 
 export function demoTotalSeconds() {
